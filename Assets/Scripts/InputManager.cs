@@ -30,11 +30,15 @@ public class InputManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (uiDialogo.TaAberto) return;   // trava movimento
+
         motor.ProcessarMovimento(inputActions.Player.Move.ReadValue<Vector2>());
     }
 
     void LateUpdate()
     {
+        if (uiDialogo.TaAberto) return;   // trava câmera
+
         olhar.ProcessarOlhar(inputActions.Player.Look.ReadValue<Vector2>());
     }
 

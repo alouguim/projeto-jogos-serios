@@ -1,16 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EventoResposta : MonoBehaviour
+[System.Serializable]
+public class EventoResposta
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [HideInInspector] public string nome;
+    [SerializeField] private UnityEvent onRespostaEscolhida;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public UnityEvent OnRespostaEscolhida => onRespostaEscolhida;
+
+
 }

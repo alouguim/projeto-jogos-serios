@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine.UI;
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
 
 public class ManejadorRespostas : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class ManejadorRespostas : MonoBehaviour
     [SerializeField] private RectTransform containerResposta;
 
     private UIDialogo uiDialogo;
+    private EventoResposta[] eventoRespostas;   
 
     private List<GameObject> botoesRespostaTemporarios = new List<GameObject>();    
 
@@ -19,17 +22,23 @@ public class ManejadorRespostas : MonoBehaviour
         uiDialogo = GetComponent<UIDialogo>();  
     }
 
+    public void AddEventosReposta(EventoResposta[] eventoRespostas)
+    {
+        this.eventoRespostas = eventoRespostas;    
+    }
     public void MostrarRespostas(Resposta[] respostas)
     {
         float alturaCaixaResposta = 0;
 
-        foreach (Resposta resposta in respostas)
+        for(int i = 0; i < respostas.Length; i++)
         {
+            Resposta resposta = respostas[i];
+            int indexResposta = i;
 
             GameObject botaoResposta = Instantiate(templateBotaoResposta.gameObject, containerResposta);
             botaoResposta.gameObject.SetActive(true);
             botaoResposta.GetComponent<TMP_Text>().text = resposta.TextoResposta;
-            botaoResposta.GetComponent<Button>().onClick.AddListener(() => OnRespostaEscolhida(resposta));
+            botaoResposta.GetComponent<Button>().onClick.AddListener(() => OnRespostaEscolhida(resposta, indexResposta));
 
             botoesRespostaTemporarios.Add(botaoResposta);
 
@@ -40,7 +49,7 @@ public class ManejadorRespostas : MonoBehaviour
         caixaResposta.gameObject.SetActive(true);
     }   
 
-    private void OnRespostaEscolhida(Resposta resposta)
+    private void OnRespostaEscolhida(Resposta resposta, int indexResposta )
     {
         caixaResposta.gameObject.SetActive(false);
 
@@ -51,6 +60,20 @@ public class ManejadorRespostas : MonoBehaviour
 
         botoesRespostaTemporarios.Clear();
 
-        uiDialogo.MostrarDialogo(resposta.ObjetoDialogo);
+        if (eventoRespostas != null && indexResposta <= eventoRespostas.Length)
+        {
+            eventoRespostas[indexResposta].OnRespostaEscolhida?.Invoke();
+        }    
+
+        eventoRespostas = null;
+
+        if (resposta.ObjetoDialogo)
+        {
+            uiDialogo.MostrarDialogo(resposta.ObjetoDialogo);
+        }
+        else
+        {
+            uiDialogo.FecharCaixaDialogo();
+        }
     }
 }

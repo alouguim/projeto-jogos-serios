@@ -31,7 +31,11 @@ public class UIDialogo : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(MostrarLinhaAtual());
     }
-
+    
+    public void AddEventosResposta(EventoResposta[] eventoRespostas)
+    {
+        manejadorRespostas.AddEventosReposta(eventoRespostas);
+    }
     public void PassarDialogo()
     {
         if (!TaAberto || dialogoAtual == null) return;
@@ -65,7 +69,7 @@ public class UIDialogo : MonoBehaviour
         yield return efeitoTypewriter.Run(linha, labelTexto);
     }
 
-    private void FecharCaixaDialogo()
+    public void FecharCaixaDialogo()
     {
         TaAberto = false;
         caixaDialogo.SetActive(false);
