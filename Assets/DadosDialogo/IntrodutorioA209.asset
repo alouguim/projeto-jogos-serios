@@ -14,5 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogo:
   - "Aaah, ta f\xE1cil demais."
-  - "Voc\xEA vai ter dois caminhos,"
-  respostas: []
+  - "Pra entender isso ai n\xE3o \xE9 dif\xEDcil, cara. Se liga:"
+  - "O bloco \"A\" do IMD representa as salas que est\xE3o ao lado direito do pr\xE9dio,
+    da perspectiva saindo das escadas ou elevadores."
+  - "O bloco \"B\" \xE9 o lado esquerdo do pr\xE9dio da perspectiva saindo das escadas
+    ou elevadores."
+  - "J\xE1 os n\xFAmeros ta ligado n\xE9? O primeiro d\xEDgito \xE9 o andar do pavimento,
+    e os outros dois o n\xFAmero da sala."
+  - "Ent\xE3o aqui, A209 \xE9 a sala do bloco A, pavimento do Segundo andar, e sala
+    de n\xFAmero 09! Sacou? "
+  - "A prop\xF3sito, a 209 \xE9 a \xFAltima sala a esquerda no corredor do bloco
+    A, ok? \xC9 a cheia de computadores."
+  - "Aproveita que os PCs de l\xE1 s\xE3o bons em."
+  respostas:
+  - textoResposta: Valeu!
+    objetoDialogo: {fileID: 11400000, guid: 596154a4c3a16984f8ad257f29eea5b4, type: 2}
+  - textoResposta: Eu ja sabia disso..
+    objetoDialogo: {fileID: 11400000, guid: a6a21b66e8f0ed94db748b5abb3ef313, type: 2}

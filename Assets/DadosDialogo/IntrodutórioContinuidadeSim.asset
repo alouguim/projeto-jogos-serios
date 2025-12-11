@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: "Introdut\xF3rioContinuidadeSim"
   m_EditorClassIdentifier: 
   dialogo:
-  - "Primeira vez por aqui? Acho que sim, ent\xE3o... Bem vindo ao IMD.\n"
+  - "Primeira vez por aqui? Acho que sim, nunca te vi por aqui, ent\xE3o... Bem vindo
+    ao IMD!\n"
   - "Geralmente n\xE3o tem ningu\xE9m para dizer bem vindo ao IMD para quem chega
     mas ei, hoje \xE9 seu dia de sorte!\n"
-  - '
-
-'
-  respostas: []
+  - "\nEnt\xE3o, o que est\xE1 procurando?"
+  respostas:
+  - textoResposta: Estou procurando a A209
+    objetoDialogo: {fileID: 11400000, guid: da69d5be9f2bd3440895ecd0d72cc6de, type: 2}

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06bc2d7e0c912448aa7e25890e72340, type: 3}
   m_Name: IntrodutorioJaSabia
   m_EditorClassIdentifier: 
-  dialogo: []
-  respostas: []
+  dialogo:
+  - "Eita, foi o costume de sair falando hahaha, a gente se v\xEA por ai, meu nome
+    \xE9 Micael. Valeu!"
+  respostas:
+  - textoResposta: Tchau...?
+    objetoDialogo: {fileID: 0}

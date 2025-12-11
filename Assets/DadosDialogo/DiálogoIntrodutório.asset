@@ -19,6 +19,6 @@ MonoBehaviour:
   - "Bom dia.. Voc\xEA est\xE1 perdido?"
   respostas:
   - textoResposta: Sim
-    objetoDialogo: {fileID: 11400000, guid: d16e631936551a646936dc3aae3b7e30, type: 2}
+    objetoDialogo: {fileID: 11400000, guid: 55efcc4cf398d6c4bb802ed34cd48da7, type: 2}
   - textoResposta: "N\xE3o"
-    objetoDialogo: {fileID: 11400000, guid: 33856ed6f1e16124c9d0cadc0b7030c4, type: 2}
+    objetoDialogo: {fileID: 11400000, guid: 6bd0fa8f53172f14bb54d99be1cf0b52, type: 2}

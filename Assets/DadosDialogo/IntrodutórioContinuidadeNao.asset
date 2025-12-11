@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06bc2d7e0c912448aa7e25890e72340, type: 3}
   m_Name: "Introdut\xF3rioContinuidadeNao"
   m_EditorClassIdentifier: 
-  dialogo: []
-  respostas: []
+  dialogo:
+  - "Oxe ent\xE3o est\xE1 tudo \xF3timo. N\xE3o \xE9 todo mundo que consegue se navegar
+    por aqui de primeira haha"
+  - "Ent\xE3o, o que est\xE1 procurando? Se n\xE3o se importa de eu perguntar.."
+  respostas:
+  - textoResposta: Estou procurando a A209
+    objetoDialogo: {fileID: 11400000, guid: da69d5be9f2bd3440895ecd0d72cc6de, type: 2}
