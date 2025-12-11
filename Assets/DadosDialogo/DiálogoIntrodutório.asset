@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a06bc2d7e0c912448aa7e25890e72340, type: 3}
-  m_Name: TesteDialogo
+  m_Name: "Di\xE1logoIntrodut\xF3rio"
   m_EditorClassIdentifier: 
   dialogo:
-  - "Ola! Esse eh meu teste de dialogo. Eh apenas algo simples para saber se t\xE1
-    tudo funcioando, n\xE3o precisa se preocupar.\n"
-  - 'Esse eh meu segundo dialogo!
+  - 'Opa, Opa!
 
-    xau!'
+'
+  - "Bom dia.. Voc\xEA est\xE1 perdido?"
   respostas:
   - textoResposta: Sim
     objetoDialogo: {fileID: 11400000, guid: d16e631936551a646936dc3aae3b7e30, type: 2}
