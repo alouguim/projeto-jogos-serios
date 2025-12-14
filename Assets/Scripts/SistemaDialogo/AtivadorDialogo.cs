@@ -27,6 +27,7 @@ public class AtivadorDialogo : MonoBehaviour, Interagivel
     }
     public void Interagir(InputManager inputManager)
     {
+       
         foreach (EventoRespostaDialogo eventoResposta in GetComponents<EventoRespostaDialogo>())
         {
             if (eventoResposta.ObjetoDialogo == objetoDialogo)

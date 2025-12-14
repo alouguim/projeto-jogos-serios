@@ -11,23 +11,27 @@ public class ManejadorRespostas : MonoBehaviour
     [SerializeField] private RectTransform caixaResposta;
     [SerializeField] private RectTransform templateBotaoResposta;
     [SerializeField] private RectTransform containerResposta;
+    [SerializeField] private ControlaImagemUI controlaImagemUI;
 
     private UIDialogo uiDialogo;
-    private EventoResposta[] eventoRespostas;   
+    private EventoResposta[] eventoRespostas;
 
     private List<GameObject> botoesRespostaTemporarios = new List<GameObject>();    
 
     private void Start()
     {
-        uiDialogo = GetComponent<UIDialogo>();  
+        uiDialogo = GetComponent<UIDialogo>(); 
+
     }
 
     public void AddEventosReposta(EventoResposta[] eventoRespostas)
     {
+        controlaImagemUI.Mostrar();
         this.eventoRespostas = eventoRespostas;    
     }
     public void MostrarRespostas(Resposta[] respostas)
     {
+
         float alturaCaixaResposta = 0;
 
         for(int i = 0; i < respostas.Length; i++)
@@ -43,7 +47,7 @@ public class ManejadorRespostas : MonoBehaviour
             botoesRespostaTemporarios.Add(botaoResposta);
 
             alturaCaixaResposta += templateBotaoResposta.sizeDelta.y;
-        }
+        }   
 
         caixaResposta.sizeDelta = new Vector2(caixaResposta.sizeDelta.x, alturaCaixaResposta);
         caixaResposta.gameObject.SetActive(true);
@@ -60,9 +64,10 @@ public class ManejadorRespostas : MonoBehaviour
 
         botoesRespostaTemporarios.Clear();
 
+
         if (eventoRespostas != null && indexResposta <= eventoRespostas.Length)
         {
-            eventoRespostas[indexResposta].OnRespostaEscolhida?.Invoke();
+                eventoRespostas[indexResposta].OnRespostaEscolhida?.Invoke();
         }    
 
         eventoRespostas = null;
@@ -73,7 +78,9 @@ public class ManejadorRespostas : MonoBehaviour
         }
         else
         {
+            controlaImagemUI.Esconder();
             uiDialogo.FecharCaixaDialogo();
         }
     }
 }
+    
