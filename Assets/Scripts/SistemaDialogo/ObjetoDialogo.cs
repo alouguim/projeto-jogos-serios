@@ -1,14 +1,13 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Dialogo")] 
+[CreateAssetMenu(menuName = "Dialogo/Objeto Dialogo")]
 public class ObjetoDialogo : ScriptableObject
 {
-    [SerializeField][TextArea] private string[] dialogo;
-    [SerializeField] private Resposta[] respostas;
+    [SerializeField] private LinhaDialogo[] dialogo;
+    public LinhaDialogo[] Dialogo => dialogo;
 
-    public string[] Dialogo => dialogo;
+    public Resposta[] Respostas;
 
-    public bool TemRespostas => Respostas != null && Respostas.Length > 0;
-
-    public Resposta[] Respostas => respostas;
+    public bool TemRespostas =>
+        Respostas != null && Respostas.Length > 0;
 }

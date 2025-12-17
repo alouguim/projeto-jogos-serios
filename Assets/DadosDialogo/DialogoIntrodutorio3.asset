@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06bc2d7e0c912448aa7e25890e72340, type: 3}
+  m_Name: DialogoIntrodutorio3
+  m_EditorClassIdentifier: 
+  dialogo:
+  - Texto: "A\xED t\xE1 f\xE1cil, Eu t\xF4 indo pra l\xE1 agora tamb\xE9m! Mas pra
+      voc\xEA n\xE3o se perder nas pr\xF3ximas vezes, vou passar como funciona a
+      nomeclatura. vamo l\xE1:"
+    Retrato: {fileID: 21300000, guid: d201d5d4a3fc760418803e91cc57939b, type: 3}
+    NomePersonagem: 
+  - Texto: "O pr\xE9dio \xE9 dividido em dois blocos, o A e o B, com o A sendo sempre
+      esse primeiro corredor como se tivesse passado da recep\xE7\xE3o ali,  e o
+      bloco B sendo o que fica depois das escadas. "
+    Retrato: {fileID: 21300000, guid: 3b6c9d2f36bb7f242803c1663da07cb1, type: 3}
+    NomePersonagem: 
+  - Texto: "Show, o primeiro n\xFAmero depois do bloco \xE9 o andar, ent\xE3o A209
+      fica no bloco A do segundo andar, tamo aqui no t\xE9rreo n\xE9, ent\xE3o sobe
+      dois andares e voc\xEA ta l\xE1."
+    Retrato: {fileID: 21300000, guid: d201d5d4a3fc760418803e91cc57939b, type: 3}
+    NomePersonagem: 
+  - Texto: "E por fim o n\xFAmero da sala. Ent\xE3o A209 \xE9 a sala 09 do bloco
+      A no segundo andar! F\xE1cil n\xE9? \xC9 a \xFAltima porta a esquerda no corredor.
+      Aproveita que os pcs nela s\xE3o muito bons em.\r\n"
+    Retrato: {fileID: 21300000, guid: d201d5d4a3fc760418803e91cc57939b, type: 3}
+    NomePersonagem: 
+  - Texto: "J\xE1 tem o sigaa mobile?\n"
+    Retrato: {fileID: 21300000, guid: 3b6c9d2f36bb7f242803c1663da07cb1, type: 3}
+    NomePersonagem: 
+  Respostas:
+  - textoResposta: Sim.
+    objetoDialogo: {fileID: 11400000, guid: 1f0e43e11c119904797ebdda6ddb86d5, type: 2}
+  - textoResposta: "N\xE3o."
+    objetoDialogo: {fileID: 11400000, guid: fe5e1251920a5a1449a8dd194b3ffdce, type: 2}

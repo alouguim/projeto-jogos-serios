@@ -10,9 +10,10 @@ public class ControlaImagemUI : MonoBehaviour
         imagemUI.gameObject.SetActive(false);
     }
 
-    public void Mostrar()
+    public void Mostrar(Sprite sprite)
     {
-        imagemUI.gameObject.SetActive(true);
+        imagemUI.sprite = sprite;
+        imagemUI.gameObject.SetActive(sprite != null);
     }
 
     public void Esconder()

@@ -4,12 +4,19 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private UIDialogo uiDialogo;
+    [SerializeField] private MenuCelularUI menuCelular;
 
     public UIDialogo UIDialogo => uiDialogo;
     public Interagivel Interagivel { get; set; }
+
     private InputSystem_Actions inputActions;
     private PlayerMotor motor;
     private PlayerLook olhar;
+
+    private bool MovimentoBloqueado =>
+    (uiDialogo != null && uiDialogo.TaAberto) ||
+    (menuCelular != null && menuCelular.Aberto);
+
 
     void Awake()
     {
@@ -18,53 +25,55 @@ public class InputManager : MonoBehaviour
         olhar = GetComponent<PlayerLook>();
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         inputActions.Enable();
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         inputActions.Disable();
     }
 
     void FixedUpdate()
     {
-        if (uiDialogo.TaAberto) return;   // trava movimento
+        if (MovimentoBloqueado) return;
 
-        motor.ProcessarMovimento(inputActions.Player.Move.ReadValue<Vector2>());
+        motor.ProcessarMovimento(
+            inputActions.Player.Move.ReadValue<Vector2>()
+        );
     }
 
     void LateUpdate()
     {
-        if (uiDialogo.TaAberto) return;   // trava câmera
+        if (MovimentoBloqueado) return;
 
-        olhar.ProcessarOlhar(inputActions.Player.Look.ReadValue<Vector2>());
+        olhar.ProcessarOlhar(
+            inputActions.Player.Look.ReadValue<Vector2>()
+        );
     }
+
 
     void Update()
     {
-
-        motor.SprintAtivo = inputActions.Player.Sprint.IsPressed();
+        // Sprint só quando não estiver bloqueado
+        if (!MovimentoBloqueado)
+        {
+            motor.SprintAtivo = inputActions.Player.Sprint.IsPressed();
+        }
 
         if (inputActions.Player.Interact.triggered)
         {
-            Debug.Log("🟢 Tecla de interação pressionada!");
-
-            if (uiDialogo.TaAberto)
+            // 👉 prioridade: diálogo
+            if (uiDialogo != null && uiDialogo.TaAberto)
             {
-                Debug.Log("📜 Dialogo aberto → Passando diálogo");
                 uiDialogo.PassarDialogo();
             }
             else if (Interagivel != null)
             {
-                Debug.Log($"🔹 Interagindo com");
                 Interagivel.Interagir(this);
-            }
-            else
-            {
-                Debug.Log("⚪ Nada pra interagir no momento");
             }
         }
     }
+
 }

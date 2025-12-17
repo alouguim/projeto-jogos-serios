@@ -5,24 +5,27 @@ public class EventoRespostaDialogo : MonoBehaviour
 {
     [SerializeField] private ObjetoDialogo objetoDialogo;
     [SerializeField] private EventoResposta[] eventos;
+    [SerializeField] private EventoResposta[] eventosFinalizarDialogo;
+
 
     public ObjetoDialogo ObjetoDialogo => objetoDialogo;
     public EventoResposta[] Eventos => eventos;
+    public EventoResposta[] EventosFinalizarDialogo => eventosFinalizarDialogo;
+
 
     public void OnValidate()
     {
         if (objetoDialogo == null) return;
-        if (objetoDialogo.Respostas == null) return;
-        if (eventos != null && eventos.Length == objetoDialogo.Respostas.Length) return;
-
-        if (eventos == null)
+        if (objetoDialogo.Respostas != null)
         {
-            eventos = new EventoResposta[objetoDialogo.Respostas.Length];    
-        }
-        else
-        {
-            Array.Resize(ref eventos, objetoDialogo.Respostas.Length);
-        }
+            if (eventos == null)
+            {
+                eventos = new EventoResposta[objetoDialogo.Respostas.Length];
+            }
+            else
+            {
+                Array.Resize(ref eventos, objetoDialogo.Respostas.Length);
+            }
 
             for (int i = 0; i < objetoDialogo.Respostas.Length; i++)
             {
@@ -34,9 +37,9 @@ public class EventoRespostaDialogo : MonoBehaviour
                     continue;
                 }
 
-                eventos[i] = new EventoResposta() { nome = resposta.TextoResposta };
-
+                eventos[i] = new EventoResposta { nome = resposta.TextoResposta };
             }
-          
+        }
     }
+
 }

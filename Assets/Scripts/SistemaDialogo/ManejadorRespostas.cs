@@ -11,7 +11,6 @@ public class ManejadorRespostas : MonoBehaviour
     [SerializeField] private RectTransform caixaResposta;
     [SerializeField] private RectTransform templateBotaoResposta;
     [SerializeField] private RectTransform containerResposta;
-    [SerializeField] private ControlaImagemUI controlaImagemUI;
 
     private UIDialogo uiDialogo;
     private EventoResposta[] eventoRespostas;
@@ -26,7 +25,6 @@ public class ManejadorRespostas : MonoBehaviour
 
     public void AddEventosReposta(EventoResposta[] eventoRespostas)
     {
-        controlaImagemUI.Mostrar();
         this.eventoRespostas = eventoRespostas;    
     }
     public void MostrarRespostas(Resposta[] respostas)
@@ -55,6 +53,9 @@ public class ManejadorRespostas : MonoBehaviour
 
     private void OnRespostaEscolhida(Resposta resposta, int indexResposta )
     {
+
+        uiDialogo.FinalizarEscolhaResposta();
+
         caixaResposta.gameObject.SetActive(false);
 
         foreach(GameObject botao in botoesRespostaTemporarios)
@@ -78,7 +79,6 @@ public class ManejadorRespostas : MonoBehaviour
         }
         else
         {
-            controlaImagemUI.Esconder();
             uiDialogo.FecharCaixaDialogo();
         }
     }
